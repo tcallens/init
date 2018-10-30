@@ -1,0 +1,18 @@
+md5sum /etc/crontab | cut -d ' ' -f1 > actualmd5
+if cat crontabmd5.log 1>/dev/null;
+then
+		if diff crontabmd5.log actualmd5 1>/dev/null;
+		then
+				echo "/etc/crontab hasn't been modified since yesterday."
+		else
+				mail -s "/etc/crontab has been modified since yesterday." root
+				echo "/etc/crontab has been modified since last check, a report mail has been sent to root."
+				cat actualmd5 > crontabmd5.log
+		fi
+else
+		md5sum /etc/crontab | cut -d ' ' -f1 > crontabmd5.log
+		echo "md5crontab.log has been created for future md5 signature comparison."
+fi
+
+# crontab -e
+# 0 0 * * * /bin/sh ~/HOME42/init/scripts/04

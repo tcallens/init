@@ -1,0 +1,6 @@
+echo -e "\n$(date)" >> /var/log/update_script.log
+(apt-get update && apt-get upgrade) >> /var/log/update_script.log
+echo -e "Done." >> /var/log/update_script.log
+
+# -> crontab -e
+# 0 4 * * 1 /bin/sh ~/HOME42/init/scripts/02

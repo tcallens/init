@@ -1,0 +1,11 @@
+> sh 10
+
+traceroute: Warning: slash16.org has multiple addresses; using 143.204.222.8
+traceroute to slash16.org (143.204.222.8), 64 hops max, 52 byte packets
+1  10.13.254.254 (10.13.254.254)  1.066 ms  1.129 ms  0.783 ms
+2  nat-1 (10.60.1.11)  0.206 ms  0.171 ms  0.196 ms
+3  dc3 (62.210.35.1)  1.954 ms  1.825 ms  1.978 ms
+4  195.154.1.174 (195.154.1.174)  1.206 ms  1.154 ms  1.215 ms
+^c
+
+on remarque que le premier materiel exterieur est nat-1 avec comme IP 10.60.1.11
